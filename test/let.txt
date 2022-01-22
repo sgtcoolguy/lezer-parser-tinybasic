@@ -1,0 +1,37 @@
+# assign numbers
+
+LET a = 0
+LET b = 1
+LET n = 10
+
+==>
+
+Program(Line(Assignment(Var,Number)),Line(Assignment(Var,Number)),Line(Assignment(Var,Number)))
+
+# assign from other vars
+
+LET t = b
+LET a = t
+
+==>
+
+Program(Line(Assignment(Var,Var)),Line(Assignment(Var,Var)))
+
+# assign basic expression
+
+LET b = a + b
+LET a = t
+LET n = n - 1
+
+==>
+
+Program(Line(Assignment(Var,Var,UnaryOp,Var)),Line(Assignment(Var,Var)),Line(Assignment(Var,Var,UnaryOp,Number)))
+
+
+# assign string gives error
+
+LET a = "hello"
+
+==>
+
+Program(Line(Assignment(Var,⚠(String))))

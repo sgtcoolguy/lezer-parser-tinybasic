@@ -1,0 +1,7 @@
+# Goto
+
+GOTO 100
+
+==>
+
+Program(Line(Goto(Number)))

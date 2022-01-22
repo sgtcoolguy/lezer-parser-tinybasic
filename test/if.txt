@@ -1,0 +1,7 @@
+# If
+
+IF n = 0 THEN END
+
+==>
+
+Program(Line(If(Var,Relop,Number,End)))

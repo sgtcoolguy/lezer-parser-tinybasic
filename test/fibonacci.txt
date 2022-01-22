@@ -1,0 +1,19 @@
+# Fibonacci
+
+REM This code prints n fibonacci numbers
+LET a = 0
+LET b = 1
+LET n = 10
+
+REM This is how loops work for now
+100 PRINT a
+IF n = 0 THEN END
+LET t = b
+LET b = a + b
+LET a = t
+LET n = n - 1
+GOTO 100
+
+==>
+
+Program(Line(Comment),Line(Assignment(Var,Number)),Line(Assignment(Var,Number)),Line(Assignment(Var,Number)),Line(Comment),Line(Number,Print(Var)),Line(If(Var,Relop,Number,End)),Line(Assignment(Var,Var)),Line(Assignment(Var,Var,UnaryOp,Var)),Line(Assignment(Var,Var)),Line(Assignment(Var,Var,UnaryOp,Number)),Line(Goto(Number)))

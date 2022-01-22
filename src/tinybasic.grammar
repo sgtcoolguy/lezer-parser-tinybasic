@@ -1,0 +1,54 @@
+@top Program { Line* }
+
+Line { Number? statement }
+
+statement {
+  Print { "PRINT" list<exprOrString> } |
+  // Should we combine the if condition into a node?
+  If { "IF" expression Relop expression "THEN" statement } |
+  Goto{ "GOTO" expression } |
+  Input { "INPUT" list<Var> } |
+  Assignment { "LET" Var "=" expression } |
+  Gosub { "GOSUB" expression } |
+  Return { "RETURN" } |
+  Clear { "CLEAR" } |
+  List { "LIST" } |
+  Run { "RUN" } |
+  End { "END" } |
+  Comment
+}
+
+exprOrString { String | expression }
+
+expression { UnaryOp? term (UnaryOp term)* }
+
+term { factor (("*"|"/") factor)* }
+
+factor { Var | Number | "(" expression ")" }
+
+@tokens {
+  Comment { "REM" ![\n]* }
+
+  Number { std.digit+ }
+
+  String { '"' !["]* '"' }
+
+  Var { $[a-zA-Z] }
+
+  Relop {
+    "<" (">" | "=")? |
+    ">" ("<" | "=")? |
+    "="
+  }
+
+  UnaryOp { "+" | "-" }
+
+  whitespace { $[ \r\n\t] }
+
+  "(" ")"
+}
+
+@skip { whitespace }
+list<item> { item ("," item)* }
+
+@detectDelim

@@ -1,0 +1,23 @@
+# Empty String
+
+PRINT ""
+
+==>
+
+Program(Line(Print(String)))
+
+# Non-empty String
+
+PRINT "This is a boring old string"
+
+==>
+
+Program(Line(Print(String)))
+
+# With line number
+
+100 PRINT a
+
+==>
+
+Program(Line(Number,Print(Var)))
